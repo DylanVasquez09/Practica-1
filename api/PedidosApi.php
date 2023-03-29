@@ -10,6 +10,12 @@
         $_POST['direccion'], $_POST['ciudad'], $_POST['telefonoCliente']);
         break;
     
+    case 'GET':
+        PeticionesPedidos::mostrarPedidos();
+
+    case 'PUT':
+        $_PUT = json_decode(file_get_contents('php://input'), true);
+        PeticionesPedidos::cambioEstado($_GET['id'], $_PUT['estado']);
     default:
         # code...
         break;
